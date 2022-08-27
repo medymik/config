@@ -29,6 +29,10 @@ func TestCanExportTheVariables(t *testing.T) {
 		t.Errorf("expect %v but got %v", "9898", os.Getenv("PORT"))
 	}
 
+	if err := tmpFile.Close(); err != nil {
+		log.Fatalln(err)
+	}
+
 	if err := os.Remove(tmpFile.Name()); err != nil {
 		log.Fatalln(err)
 	}
